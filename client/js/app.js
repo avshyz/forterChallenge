@@ -1,5 +1,6 @@
 // App
 var app = angular.module('app', []);
+var sock = io();
 
 // Service to fetch some data..
 app.factory('dataServ', ['$http', function ($http) {
