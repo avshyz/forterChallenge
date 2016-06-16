@@ -18,6 +18,11 @@ html(ng-app="app" ng-cloak)
         md-sidenav(flex="15" md-is-locked-open="true" class="md-whiteframe-z1")
           md-content sidenav
         div(layout="column" flex)
-          .box1 70
-          .box2 fixed
-          .box3 flex
+          .box1
+              ul
+                  li(ng-repeat="message in log")
+                    | {{message.author}}: {{message.msg}}
+          form(ng-submit="send()")
+            md-input-container
+                label Message
+                input(type="text" ng-model="message")

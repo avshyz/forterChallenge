@@ -13,6 +13,7 @@ app.factory('dataServ', ['$http', function ($http) {
 
 // App controller
 app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
+    $scope.log = [];
 
     sock.on('auth', function(data) {
         console.log(data);
@@ -21,6 +22,8 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
 
     sock.on('received', function(data) {
         console.log(data);
+        $scope.log.push(data);
+        $scope.$apply()
     });
 
     $scope.funnyStuff = {question: '', answer: ''};
@@ -30,7 +33,7 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
             $scope.funnyStuff = resp;
         });
 
-    $scope.hello = function () {
+    $scope.send = function () {
         sock.emit('send', {
             author: $scope.id,
             msg: $scope.message
