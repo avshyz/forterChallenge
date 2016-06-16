@@ -4,6 +4,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var port = 3000;
 
+var utils = require('./server/utils');
+
 app.use(express.static(__dirname + '/client'));
 app.set('views', __dirname + '/client/templates');
 app.set('view engine', "jade");
@@ -14,6 +16,7 @@ require('./server/routes.js')(app);
 
 io.on('connection', function (socket) {
     console.log('a user connected');
+    socket.emit('auth', {id: utils.getUniqId()});
 });
 
 

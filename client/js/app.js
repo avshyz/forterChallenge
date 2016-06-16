@@ -23,5 +23,9 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
 
     $scope.hello = function () {
         console.log($scope.message);
-    }
+    };
+
+    sock.on('auth', function(data) {
+        console.log(data);
+    });
 }]);
