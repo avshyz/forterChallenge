@@ -1,0 +1,24 @@
+doctype html
+html(ng-app="app")
+    head
+        meta(charset="utf-8")
+        title NodeJS Skeleton
+        script(src="js/lib/angular.min.js")
+        script(src="js/app.js")
+        style(type="text/css").
+            .container {
+                padding: 200px 0;
+            }
+
+            .funny-stuff {
+                text-align: center;
+            }
+    body(ng-controller="appController as main")
+    .container
+        .funny-stuff
+            span: Question {{funnyStuff.question}}
+        .funny-stuff
+            span: Answer {{funnyStuff.answer}} {{funnyStuff.id}}
+
+        input(type="text" ng-model="message")
+        input(value="send" type="button" ng-click="hello()")

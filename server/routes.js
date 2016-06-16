@@ -3,7 +3,7 @@ var utils = require('./utils');
 module.exports = function(app) {
 
 	app.get('/', function(req, res) {
-		res.sendfile('./public/index.html');
+		res.render('index');
 	});
 
 	var funnyStuff = {
