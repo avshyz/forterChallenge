@@ -13,6 +13,11 @@ app.factory('dataServ', ['$http', function ($http) {
 
 // App controller
 app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
+    // TODO
+    // 1. bot
+    // 2. online users
+    // 3. restyle
+
     $scope.log = [];
 
     sock.on('auth', function(data) {
