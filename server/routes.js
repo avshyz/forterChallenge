@@ -8,12 +8,12 @@ module.exports = function(app) {
 
 	var funnyStuff = {
 		question: 'Why did the chicken cross the road?',
-		answer: 'To get to the other side',
-		id: utils.getUniqId()
+		answer: 'To get to the other side'
 	};
 
 
 	app.get('/data', function(req, res) {
+		funnyStuff.id = utils.getUniqId();
 		res.json(funnyStuff);
 	});
 };
