@@ -1,5 +1,5 @@
 // App
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngAnimate', 'ngAria', 'ngMaterial']);
 var sock = io();
 
 // Service to fetch some data..
