@@ -9,7 +9,7 @@
 1. `git clone git@github.com:forter/node-skeleton.git`
 2. `cd node-skeleton`
 3. `npm install`
-3. `node app.js`
+3. `node server.js`
 4. Go to `http://localhost:3000`
 5. Enjoy life.
 
@@ -17,7 +17,7 @@
 
 Add routes to server in: `server/routes.js`
 
-Main angular module: `client/app.js`
+Main angular module: `client/server.js`
 
 Main html file: `client/index.html`
 
