@@ -14,6 +14,11 @@ app.factory('dataServ', ['$http', function ($http) {
 // App controller
 app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
 
+    sock.on('auth', function(data) {
+        console.log(data);
+        $scope.id = data.id;
+    });
+
     $scope.funnyStuff = {question: '', answer: ''};
 
     Data.get()
@@ -24,8 +29,4 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
     $scope.hello = function () {
         console.log($scope.message);
     };
-
-    sock.on('auth', function(data) {
-        console.log(data);
-    });
 }]);
