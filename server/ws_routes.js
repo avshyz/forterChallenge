@@ -8,7 +8,7 @@ module.exports = function (io) {
 
         socket.on('send', function (data) {
             console.log(data);
-            socket.broadcast.emit('received', data);
+            io.sockets.emit('received', data);
         });
     });
 };
