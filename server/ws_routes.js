@@ -2,7 +2,13 @@ var utils = require('./utils');
 
 module.exports = function (io) {
     io.on('connection', function (socket) {
-        console.log('a user connected');
-        socket.emit('auth', {id: utils.getUniqId()});
+        var id = utils.getUniqId();
+        socket.emit('auth', {id: id});
+        console.log(id + ' connected');
+
+        socket.on('send', function (data) {
+            console.log(data);
+            socket.broadcast.emit('received', data);
+        });
     });
 };

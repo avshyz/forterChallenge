@@ -19,6 +19,10 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
         $scope.id = data.id;
     });
 
+    sock.on('received', function(data) {
+        console.log(data);
+    });
+
     $scope.funnyStuff = {question: '', answer: ''};
 
     Data.get()
@@ -27,6 +31,9 @@ app.controller('appController', ['$scope', 'dataServ', function ($scope, Data) {
         });
 
     $scope.hello = function () {
-        console.log($scope.message);
+        sock.emit('send', {
+            author: $scope.id,
+            msg: $scope.message
+        });
     };
 }]);
