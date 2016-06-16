@@ -24,10 +24,14 @@ var right = ['albattani', 'allen', 'almeida', 'agnesi', 'archimedes', 'ardinghel
     'turing', 'varahamihira', 'visvesvaraya', 'volhard', 'wescoff', 'williams', 'wilson', 'wing', 'wozniak', 'wright',
     'yalow', 'yonath'
 ];
+
 module.exports = {
     // Name picker, a le' docker!
     getUniqId: function () {
-        
-        return _.sample(left) + ' ' + _.sample(right);
+        var name = 'a';
+        do {
+            name = _.sample(left) + '_' + _.sample(right);
+        } while (name == 'boring_wozniak'); // homage :)
+        return name;
     }
 };
