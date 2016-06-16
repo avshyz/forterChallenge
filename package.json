@@ -5,6 +5,8 @@
   "main": "app.js",
   "author": "OriW",
   "dependencies": {
+    "angular-material": "^1.0.9",
+    "bower": "^1.7.9",
     "express": "~4.6.1",
     "http": "0.0.0",
     "jade": "^1.11.0",
