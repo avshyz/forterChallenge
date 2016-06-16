@@ -12,7 +12,7 @@ html(ng-app="app" ng-cloak)
         script(src="js/app.js")
         link(rel="stylesheet", href="styles/main.css")
 
-    body(ng-controller="appController as main")
+    body(ng-controller="appController as main" layout='column')
       md-toolbar toolbar
       div(flex layout="row")
         md-sidenav(flex="15" md-is-locked-open="true" class="md-whiteframe-z1")
