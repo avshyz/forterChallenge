@@ -13,10 +13,7 @@ module.exports = function (io) {
             io.sockets.emit('received', data);
             var bot_response = bot.evesdrop(data.msg);
             if (bot_response) {
-                io.sockets.emit('received', {
-                    author: 'HAL BOT',
-                    msg: bot_response
-                })
+                io.sockets.emit('received', bot_response)
             }
         });
     });
