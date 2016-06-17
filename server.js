@@ -13,6 +13,7 @@ app.engine('jade', require('jade').__express);
 
 app.use(stylus.middleware({
     src: __dirname + '/client',
+    dest: __dirname + '/client/css',
     compile: function (str, path) {
         return stylus(str)
             .set('filename', path)
