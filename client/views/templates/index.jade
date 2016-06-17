@@ -9,6 +9,7 @@ html(ng-app="app" ng-cloak)
         script(src="lib/angular-animate/angular-animate.js")
         script(src="lib/angular-material/angular-material.min.js")
         script(src="lib/lodash/lodash.js")
+        script(src="lib/angular-scroll-glue/src/scrollglue.js")
         link(rel="stylesheet", href="lib/angular-material/angular-material.min.css")
         script(src="js/app.js")
         link(rel="stylesheet", href="/styles/main.css")
@@ -25,7 +26,7 @@ html(ng-app="app" ng-cloak)
                     md-list-item.md-1-line(ng-repeat="user in onlineUsers")
                         .md-list-item-text: p.md-body-2(ng-style="{'color': uniqColors[user]}") {{user}}
             div(layout="column" flex)
-                div#chat-box
+                div#chat-box(scroll-glue)
                     ul
                         li(ng-repeat="message in log")
                             p.md-body-2(layout-padding ng-class="{'automatic-message': (message.source === 'auto'), 'bot-message': (message.source==='bot')}")

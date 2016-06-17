@@ -1,5 +1,5 @@
 // App
-var app = angular.module('app', ['ngAnimate', 'ngAria', 'ngMaterial']);
+var app = angular.module('app', ['ngAnimate', 'ngAria', 'ngMaterial', 'luegg.directives']);
 var sock = io();
 
 // App controller

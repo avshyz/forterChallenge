@@ -1,10 +1,11 @@
 var Hal = function () {
     this.knowledge = {
         'what is the answer to life the universe and everything?': '42',
-        'how much wood, would a woodchuck chuck, if a woodchuck could chuck wood?': 'none.'
+        'how much wood, would a woodchuck chuck, if a woodchuck could chuck wood?': 'none.',
+        'why?': 'because.'
     };
     this.currentQuestion = '';
-    this.name = 'HAL BOT';
+    this.name = 'HAL_BOT';
     console.log(this.name + ' AWAKEN');
 };
 
