@@ -15,7 +15,7 @@ module.exports = function (io) {
 
         socket.on('send', function (data) {
             io.sockets.emit('received', data);
-            var bot_response = bot.evesdrop(data.msg);
+            var bot_response = bot.eavesdrop(data.msg);
             if (bot_response) {
                 io.sockets.emit('received', bot_response)
             }

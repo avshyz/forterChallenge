@@ -5,7 +5,7 @@ var Hal = function () {
     console.log(this.name + ' AWAKEN');
 };
 
-Hal.prototype.evesdrop = function (message) {
+Hal.prototype.eavesdrop = function (message) {
     if (message.endsWith('?')) {
         if (message in this.knowledge) {
             return {
