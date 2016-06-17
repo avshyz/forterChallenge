@@ -1,5 +1,5 @@
 var Hal = function () {
-    this.knowledge = {};
+    this.knowledge = {'what is the answer to life the universe and everything?': '42'};
     this.currentQuestion = '';
     this.name = 'HAL BOT'
 };

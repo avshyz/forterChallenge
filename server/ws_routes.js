@@ -3,7 +3,7 @@ var Hal = require('./hal_bot');
 
 module.exports = function (io) {
     var bot = new Hal();
-    var onlineUsers = [];
+    var onlineUsers = [bot.name];
 
     io.on('connection', function (socket) {
         var id = utils.getUniqId();
