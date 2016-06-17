@@ -9,7 +9,8 @@ Hal.prototype.evesdrop = function (message) {
         if (message in this.knowledge) {
             return {
                     author: this.name,
-                    msg: this.knowledge[message]
+                    msg: this.knowledge[message],
+                    human: false
                 };
         } else {
             this.currentQuestion = message;

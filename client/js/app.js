@@ -44,7 +44,8 @@ app.controller('appController', ['$scope', function ($scope) {
     $scope.send = function () {
         sock.emit('send', {
             author: $scope.id,
-            msg: $scope.message
+            msg: $scope.message,
+            human: true
         });
         $scope.message = '';
     };
