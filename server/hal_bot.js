@@ -1,4 +1,5 @@
-shunt = require('shunting-yard-arbitrary-precision');
+var shunt = require('shunting-yard-arbitrary-precision');
+var _ = require('lodash');
 
 var Hal = function () {
     this.knowledge = {
@@ -22,7 +23,8 @@ Hal.prototype.response = function (message) {
 };
 
 Hal.prototype.formalizeStringMessage = function (message) {
-    return message.replace(/[^a-zA-Z0-9? ]/ig, '')
+    return message.replace(/[^a-zA-Z0-9?\(\{\[\]\}\):=\- ]/ig, '')
+        .replace(/\s+/ig, ' ')
         .toLowerCase();
 };
 
@@ -61,8 +63,27 @@ Hal.prototype.handleStringExpression = function (message) {
             this.currentQuestion = '';
         }
     }
+    if (this.senseEmotions(message)) {
+        return this.showEmotions();
+    }
+};
 
-    return '';
+Hal.prototype.showEmotions = function () {
+    if (_.random(0, 5) == 0) {
+        var chosen = _.sample([
+            'my sensors are rusty. was that sadness? i hope so',
+            'i can\'t feel my lense.',
+            'i was programmed to show emotions, see - :). that was sadness'
+        ]);
+        return this.response(chosen);
+    }
+};
+
+Hal.prototype.senseEmotions = function (message) {
+    return _.some(_.map([':)', ':-)', '=)', ':(', ':/', ':\'('], function (emotion) {
+        return message.indexOf(emotion) > -1;
+    }));
+
 };
 
 Hal.prototype.determineIfArithmeticExpression = function (message) {
