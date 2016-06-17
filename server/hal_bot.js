@@ -80,10 +80,7 @@ Hal.prototype.showEmotions = function () {
 };
 
 Hal.prototype.senseEmotions = function (message) {
-    return _.some(_.map([':)', ':-)', '=)', ':(', ':/', ':\'('], function (emotion) {
-        return message.indexOf(emotion) > -1;
-    }));
-
+    return message.match(/[:=;8]-?[\(\)\{\}\[\]DXPO><\*]/) !== null;
 };
 
 Hal.prototype.determineIfArithmeticExpression = function (message) {
