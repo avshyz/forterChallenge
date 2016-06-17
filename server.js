@@ -7,13 +7,13 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var port = 3000;
 
-app.set('views', __dirname + '/client/templates');
+app.set('views', __dirname + '/client/views/templates');
 app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 
 app.use(stylus.middleware({
-    src: __dirname + '/client',
-    dest: __dirname + '/client/css',
+    src: __dirname + '/client/views',
+    dest: __dirname + '/client',
     compile: function (str, path) {
         return stylus(str)
             .set('filename', path)
