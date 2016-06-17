@@ -12,11 +12,12 @@ html(ng-app="app" ng-cloak)
         script(src="js/app.js")
         link(rel="stylesheet", href="styles/main.css")
 
-    body(ng-controller="appController as main" layout='column')
+    body(ng-controller="appController" layout='column')
       md-toolbar toolbar
       div(flex layout="row")
         md-sidenav(flex="15" md-is-locked-open="true" class="md-whiteframe-z1")
-          md-content sidenav
+          md-content
+            div(ng-repeat="user in onlineUsers") {{user}}
         div(layout="column" flex)
           .box1
               ul
