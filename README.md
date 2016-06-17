@@ -1,4 +1,4 @@
-# Skeleton app with Node.js + express + angular
+# Forter Challenge!
 
 ## Requirements
 
@@ -6,7 +6,7 @@
 
 ## Installation
 
-1. `git clone git@github.com:forter/node-skeleton.git`
+1. `git clone git@github.com:breverie/forterChallenge.git`
 2. `cd node-skeleton`
 3. `npm install`
 3. `bower install`
