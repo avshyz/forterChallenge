@@ -25,7 +25,7 @@ module.exports = function (io) {
         socket.on('disconnect', function () {
             socket.broadcast.emit('user_disconnected', {id: id});
             console.log(id + ' disconnected');
-            delete onlineUsers[onlineUsers.indexOf(id)];
+            onlineUsers.splice(onlineUsers.indexOf(id), 1);
         });
     });
 };
