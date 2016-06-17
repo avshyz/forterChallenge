@@ -13,17 +13,19 @@ html(ng-app="app" ng-cloak)
         link(rel="stylesheet", href="styles/main.css")
 
     body(ng-controller="appController" layout='column')
-      md-toolbar toolbar
-      div(flex layout="row")
-        md-sidenav(flex="15" md-is-locked-open="true" class="md-whiteframe-z1")
-          md-content
-            div(ng-repeat="user in onlineUsers") {{user}}
-        div(layout="column" flex)
-          .box1
-              ul
-                  li(ng-repeat="message in log")
-                    | {{message.author}}: {{message.msg}}
-          form(ng-submit="send()")
-            md-input-container
-                label Message
-                input(type="text" ng-model="message")
+        md-toolbar toolbar
+        div(flex layout="row")
+            md-sidenav(flex="20" md-is-locked-open="true" class="md-whiteframe-z1")
+                md-list
+                    md-subheader.md-no-sticky Online
+                    md-list-item.md-1-line(ng-repeat="user in onlineUsers")
+                        .md-list-item-text: p {{user}}
+            div(layout="column" flex)
+                .box1
+                    ul
+                        li(ng-repeat="message in log")
+                            | {{message.author}}: {{message.msg}}
+                form(ng-submit="send()")
+                    md-input-container#msg-input
+                        label Message
+                        input(type="text" ng-model="message")

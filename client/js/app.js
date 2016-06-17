@@ -40,5 +40,6 @@ app.controller('appController', ['$scope', function ($scope) {
             author: $scope.id,
             msg: $scope.message
         });
+        $scope.message = '';
     };
 }]);

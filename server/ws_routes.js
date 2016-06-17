@@ -7,7 +7,6 @@ module.exports = function (io) {
 
     io.on('connection', function (socket) {
         var id = utils.getUniqId();
-        socket.id = id;
         socket.emit('auth', {id: id, onlineUsers: onlineUsers});
         socket.broadcast.emit('user_connected', {id: id});
         onlineUsers.push(id);
