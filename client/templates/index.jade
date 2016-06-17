@@ -13,19 +13,22 @@ html(ng-app="app" ng-cloak)
         link(rel="stylesheet", href="styles/main.css")
 
     body(ng-controller="appController" layout='column')
-        md-toolbar toolbar
+        md-toolbar: .md-toolbar-tools: h2: span Forter Challenge
         div(flex layout="row")
-            md-sidenav(flex="20" md-is-locked-open="true" class="md-whiteframe-z1")
+            md-sidenav(flex="25" md-is-locked-open="true" class="md-whiteframe-z1")
                 md-list
+                    md-subheader.md-no-sticky Active User
+                    md-list-item
+                        .md-list-item-text: p.md-body-2 {{id}}
                     md-subheader.md-no-sticky Online
                     md-list-item.md-1-line(ng-repeat="user in onlineUsers")
-                        .md-list-item-text: p {{user}}
+                        .md-list-item-text: p.md-body-2 {{user}}
             div(layout="column" flex)
-                .box1
+                div#chat-box
                     ul
                         li(ng-repeat="message in log")
-                            | {{message.author}}: {{message.msg}}
+                            md-content(layout-padding) {{message.author}}: {{message.msg}}
                 form(ng-submit="send()")
                     md-input-container#msg-input
                         label Message
-                        input(type="text" ng-model="message")
+                        input(autocomplete="off" type="text" ng-model="message")

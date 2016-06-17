@@ -5,8 +5,8 @@ var sock = io();
 // App controller
 app.controller('appController', ['$scope', function ($scope) {
     // TODO
-    // 3. restyle
-    // 4. sockio service - automatic $applyt
+    // restyle
+    // refactor styles
 
     $scope.log = [];
 
