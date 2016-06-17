@@ -6,6 +6,7 @@ var Hal = function () {
 };
 
 Hal.prototype.eavesdrop = function (message) {
+    message = message.toLowerCase();
     if (message.endsWith('?')) {
         if (message in this.knowledge) {
             return {
