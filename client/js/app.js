@@ -5,12 +5,7 @@ var sock = io();
 // App controller
 app.controller('appController', ['$scope', function ($scope) {
     // TODO
-    // restyle
     // refactor styles
-
-    $scope.pick = function () {
-        return '#' + Math.floor(Math.random() * 16777215).toString(16);
-    };
 
 
     $scope.log = [];
@@ -52,5 +47,9 @@ app.controller('appController', ['$scope', function ($scope) {
             msg: $scope.message
         });
         $scope.message = '';
+    };
+
+    $scope.pick = function () {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
     };
 }]);
