@@ -4,14 +4,16 @@ var Hal = function () {
     this.knowledge = {
         'what is the answer to life the universe and everything?': '42',
         'how much wood, would a woodchuck chuck, if a woodchuck could chuck wood?': 'none.',
-        'why?': 'because.'
+        'why?': 'because.',
+        'please?': 'no'
     };
     this.currentQuestion = '';
     this.name = 'HAL_BOT';
+    this.patience = 3;
     console.log(this.name + ' AWAKEN');
 };
 
-Hal.prototype.respond = function (message) {
+Hal.prototype.response = function (message) {
     return {
         author: this.name,
         msg: message,
@@ -33,9 +35,14 @@ Hal.prototype.formalizeArithmeticExpression = function (message) {
 Hal.prototype.handleArithmeticExpression = function (message) {
     message = this.formalizeArithmeticExpression(message);
     try {
-        return this.respond(shunt(message));
+        if (this.patience-- > 0) {
+            return this.response(shunt(message));
+        }
+        else {
+            return this.response('i\'m not an abacus. i believe in you.')
+        }
     } catch (err) {
-        return this.respond('I may not be an abacus, but you should work on your math');
+        return this.response('you should work on your math');
     }
 };
 
@@ -43,7 +50,7 @@ Hal.prototype.handleStringExpression = function (message) {
     message = this.formalizeStringMessage(message);
     if (message.endsWith('?')) {
         if (message in this.knowledge) {
-            return this.respond(this.knowledge[message]);
+            return this.response(this.knowledge[message]);
         } else {
             this.currentQuestion = message;
         }
