@@ -1,7 +1,8 @@
 var Hal = function () {
     this.knowledge = {'what is the answer to life the universe and everything?': '42'};
     this.currentQuestion = '';
-    this.name = 'HAL BOT'
+    this.name = 'HAL BOT';
+    console.log(this.name + ' AWAKEN');
 };
 
 Hal.prototype.evesdrop = function (message) {
@@ -17,6 +18,7 @@ Hal.prototype.evesdrop = function (message) {
         }
     } else {
         if (this.currentQuestion) {
+            console.log('KNOWLEDGE GAINED: ' + this.currentQuestion + ' -> ' + message);
             this.knowledge[this.currentQuestion] = message;
             this.currentQuestion = '';
         }
