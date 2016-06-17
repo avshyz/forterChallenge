@@ -26,12 +26,15 @@ app.controller('appController', ['$scope', function ($scope) {
     sock.on('user_connected', function (data) {
         $scope.onlineUsers.push(data.id);
         $scope.uniqColors[data.id] = $scope.pick();
+        $scope.log.push({source: 'auto', msg: data.id + ' has joined the IRC'});
         $scope.$apply();
     });
 
     sock.on('user_disconnected', function (data) {
         $scope.onlineUsers.splice($scope.onlineUsers.indexOf(data.id), 1);
         delete $scope.uniqColors[data.id];
+        $scope.log.push({source: 'auto', msg: data.id + ' has left the IRC'});
+
         $scope.$apply();
     });
 
@@ -45,7 +48,7 @@ app.controller('appController', ['$scope', function ($scope) {
         sock.emit('send', {
             author: $scope.id,
             msg: $scope.message,
-            human: true
+            source: 'human'
         });
         $scope.message = '';
     };

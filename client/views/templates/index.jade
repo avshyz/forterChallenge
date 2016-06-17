@@ -28,8 +28,8 @@ html(ng-app="app" ng-cloak)
                 div#chat-box
                     ul
                         li(ng-repeat="message in log")
-                            p.md-body-2(layout-padding)
-                                span.md-subhead#user-name(ng-style="{'color': uniqColors[message.author], 'font-style': (!message.human) ? 'italic' : ''}") {{message.author}}
+                            p.md-body-2(layout-padding ng-class="{'automatic-message': (message.source === 'auto'), 'bot-message': (message.source==='bot')}")
+                                span.md-subhead#user-name(ng-if="message.author", ng-style="{'color': uniqColors[message.author]}") {{message.author}}
                                 | {{message.msg}}
                 form(ng-submit="send()")
                     md-input-container#msg-input

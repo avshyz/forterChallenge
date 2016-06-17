@@ -20,7 +20,7 @@ Hal.prototype.eavesdrop = function (message) {
             return {
                     author: this.name,
                     msg: this.knowledge[message],
-                    human: false
+                    source: 'bot'
                 };
         } else {
             this.currentQuestion = message;
