@@ -1,12 +1,20 @@
 var Hal = function () {
-    this.knowledge = {'what is the answer to life the universe and everything?': '42'};
+    this.knowledge = {
+        'what is the answer to life the universe and everything?': '42',
+        'how much wood, would a woodchuck chuck, if a woodchuck could chuck wood?': 'none.'
+    };
     this.currentQuestion = '';
     this.name = 'HAL BOT';
     console.log(this.name + ' AWAKEN');
 };
 
+Hal.prototype.formalizeMessage = function(message) {
+    return message.replace(/[^a-zA-Z0-9? ]/ig, '')
+        .toLowerCase();
+};
+
 Hal.prototype.eavesdrop = function (message) {
-    message = message.toLowerCase();
+    message = this.formalizeMessage(message);
     if (message.endsWith('?')) {
         if (message in this.knowledge) {
             return {
